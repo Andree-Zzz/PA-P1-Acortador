@@ -45,4 +45,4 @@ def redirect_url(url_short):
     if(url != None): return redirect(url[0])
     return redirect(url_for('index'))
 
-#app.run(debug=True)
+app.run(debug=True) #Desactivar
