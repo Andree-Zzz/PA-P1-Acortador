@@ -48,10 +48,10 @@ def crearShort():
 def redirect_url(url_short):
     url_short = request.host_url+url_short
     cursor = db.cursor()
-    cursor.execute("SELECT url FROM acortador WHERE url_short = %s", (url_short,))
+    cursor.execute("SELECT url FROM acortador WHERE url_short = %s LIMIT 1", (url_short,))
     url = cursor.fetchone()
     cursor.close()
     if(url != None): return redirect(url[0])
     return redirect(url_for('index'))
 
-# app.run(debug=True) #Comentar para heroku
+app.run(debug=True) #Comentar para heroku
